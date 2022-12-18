@@ -47,7 +47,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        file: "./*.apk"
-        tags: true
+        file: "com*.apk"
         draft: true
+        overwrite: true
 
