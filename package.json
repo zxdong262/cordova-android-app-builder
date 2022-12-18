@@ -1,0 +1,50 @@
+{
+  "name": "cordova-android-app-builder",
+  "displayName": "Build Cordova Android app",
+  "version": "1.0.0",
+  "description": "[Experimental] Build Cordova Android app",
+  "main": "index.js",
+  "scripts": {
+    "pre": "cp sample.env .env && node build/pre.js",
+    "prepare": "rm -rf platforms plugins && cordova prepare",
+    "icon": "cordova-icon --config=config.xml --icon=src/app/icon.png",
+    "splash": "cordova-splash --config=config.xml --splash=src/app/splash.png",
+    "cp": "node build/copy.js",
+    "fix": "standard --fix",
+    "lint": "standard",
+    "build-android": "cordova build android"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": {
+    "name": "ZHAO Xudong",
+    "email": "zxdong@gmail.com",
+    "url": "https://github.com/zxdong262"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "cordova-android": "^9.0.0",
+    "cordova-plugin-inappbrowser": "^4.0.0",
+    "shelljs": "^0.8.4",
+    "standard": "^16.0.3"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-inappbrowser": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  },
+  "standard": {
+    "globals": [
+      "cordova",
+      "HTMLMediaElement"
+    ],
+    "ignore": [
+      "*-compiled.js",
+      "/docs/"
+    ]
+  }
+}
