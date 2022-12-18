@@ -38,6 +38,8 @@ jobs:
     - run: npm run pre
     - run: npm i
     - run: npm run prepare
+    - run: cordova platform rm android
+    - run: cordova platform add android
     - run: npm run icon
     - run: npm run splash
     - run: npm run build-android
