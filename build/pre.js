@@ -8,7 +8,7 @@ const to = resolve(__dirname, '../config.xml')
 const env = resolve(__dirname, '../.env')
 const from = resolve(__dirname, '../src/app/config.xml')
 
-console.log('building config.xml')
+console.log('building config.xml and index.html')
 const str = readFileSync(
   env
 ).toString()
@@ -33,4 +33,20 @@ const res = xml.replace(/\{[\w\d]+\}/g, (s) => {
   }
 })
 writeFileSync(to, res)
+const indexFileFrom = resolve(__dirname,  '../src/app/index.html')
+const indexFileTo = resolve(__dirname,  '../www/index.html')
+const index = readFileSync(
+  indexFileFrom
+).toString()
+const resIndex = index.replace(/\{[\w\d]+\}/g, (s) => {
+  const k = s.replace(/\{|\}/g, '')
+  const v = conf[k]
+  if (v) {
+    return v
+  } else {
+    return s
+  }
+})
+writeFileSync(indexFileTo, resIndex)
+
 console.log('done')

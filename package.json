@@ -24,13 +24,11 @@
   "license": "MIT",
   "devDependencies": {
     "cordova-android": "^9.0.0",
-    "cordova-plugin-inappbrowser": "^4.0.0",
     "shelljs": "^0.8.4",
     "standard": "^16.0.3"
   },
   "cordova": {
     "plugins": {
-      "cordova-plugin-inappbrowser": {}
     },
     "platforms": [
       "android"

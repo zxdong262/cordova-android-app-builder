@@ -218,4 +218,4 @@ $RECYCLE.BIN/
 /config.xml
 /*.zip
 /package.json.*
-/deploy/embeddable/
+/www/index.html
