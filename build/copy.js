@@ -22,12 +22,12 @@ const conf = str
 
 const from = resolve(
   __dirname,
-  'platforms/android/app/build/outputs/apk/debug/app-debug.apk'
+  '../platforms/android/app/build/outputs/apk/debug/app-debug.apk'
 )
 const id = conf.appId
 const to = resolve(
   __dirname,
-  `${conf.appId}-${conf.appVersion}.apk`
+  `../${conf.appId}-${conf.appVersion}.apk`
 )
 cp(from, to)
 echo('done')

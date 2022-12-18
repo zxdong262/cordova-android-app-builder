@@ -10,23 +10,31 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-20.04
-    node-version: [ 16.x ]
+    runs-on: ubuntu-22.04
     environment: build
     if: "!contains(github.event.head_commit.message, '[skip build]') && !contains(github.event.head_commit.message, '[skip ci]') && !contains(github.event.head_commit.message, '[skip linux]')"
 
     steps:
+    - uses: mfinelli/setup-imagemagick@v2
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 16.x
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 16.x
 
-    - name: Use oxr463/setup-cordova
-      uses: oxr463/setup-cordova@0.0.3
+    - uses: actions/setup-java@v3
+      with:
+        distribution: temurin
+        java-version: 8
 
+    - run: npm i -g cordova cordova-icon cordova-splash
+    - name: Fixing Android Build Tool Issue
+      run: |
+          cd $ANDROID_HOME/build-tools/33.0.1
+          mv d8 dx
+          cd lib
+          mv d8.jar dx.jar
     # before_install:
-    - run: apt-get install imagemagick -y
     - run: npm run pre
     - run: npm i
     - run: npm run prepare
@@ -34,12 +42,13 @@ jobs:
     - run: npm run splash
     - run: npm run build-android
     - run: npm run cp
+    - run: ls
 
     - uses: xresloader/upload-to-github-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        file: "*.apk"
-        tags: true
+        file: "com*.apk"
         draft: true
+        overwrite: true
 
