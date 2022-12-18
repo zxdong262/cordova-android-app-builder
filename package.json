@@ -3,7 +3,6 @@
   "displayName": "Build Cordova Android app",
   "version": "1.0.0",
   "description": "[Experimental] Build Cordova Android app",
-  "main": "index.js",
   "scripts": {
     "pre": "cp sample.env .env && node build/pre.js",
     "prepare": "rm -rf platforms plugins && cordova prepare",
