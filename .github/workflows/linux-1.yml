@@ -28,7 +28,12 @@ jobs:
         java-version: 8
 
     - run: npm i -g cordova cordova-icon cordova-splash
-
+    - name: Fixing Android Build Tool Issue
+      run: |
+          cd $ANDROID_HOME/build-tools/33.0.0
+          mv d8 dx
+          cd lib
+          mv d8.jar dx.jar
     # before_install:
     - run: npm run pre
     - run: npm i
