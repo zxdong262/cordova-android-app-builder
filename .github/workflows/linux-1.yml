@@ -30,7 +30,7 @@ jobs:
     - run: npm i -g cordova cordova-icon cordova-splash
     - name: Fixing Android Build Tool Issue
       run: |
-          cd $ANDROID_HOME/build-tools/33.0.0
+          cd $ANDROID_HOME/build-tools/33.0.1
           mv d8 dx
           cd lib
           mv d8.jar dx.jar
@@ -47,7 +47,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        file: "*.apk"
+        file: "./*.apk"
         tags: true
         draft: true
 
