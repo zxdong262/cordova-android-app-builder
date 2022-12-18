@@ -42,6 +42,7 @@ jobs:
     - run: npm run splash
     - run: npm run build-android
     - run: npm run cp
+    - run: ls
 
     - uses: xresloader/upload-to-github-release@v1
       env:
