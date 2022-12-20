@@ -27,7 +27,6 @@
     "cordova-clipboard": "^1.3.0",
     "cordova-plugin-app-version": "^0.1.14",
     "cordova-plugin-inappbrowser": "^5.0.0",
-    "cordova-plugin-minify": "^1.0.1",
     "shelljs": "^0.8.4",
     "standard": "^16.0.3"
   },
@@ -35,8 +34,7 @@
     "plugins": {
       "cordova-plugin-app-version": {},
       "cordova-clipboard": {},
-      "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-minify": {}
+      "cordova-plugin-inappbrowser": {}
     },
     "platforms": [
       "android"
