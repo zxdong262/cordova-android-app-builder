@@ -38,17 +38,21 @@ jobs:
     - run: npm run pre
     - run: npm i
     - run: npm run prepare
+    - run: cordova platform rm android
+    - run: cordova platform add android
     - run: npm run icon
     - run: npm run splash
     - run: npm run build-android
     - run: npm run cp
     - run: ls
+    - run: cp -r platforms/android/platform_www ./
+    - run: tar -czvf android.tar.gz platform_www
 
     - uses: xresloader/upload-to-github-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        file: "com*.apk"
+        file: "com*.apk;*.gz"
         draft: true
         overwrite: true
 
