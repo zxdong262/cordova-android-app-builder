@@ -5,6 +5,7 @@
   "description": "[Experimental] Build Cordova Android app",
   "scripts": {
     "pre": "cp sample.env .env && node build/pre.js",
+    "pre2": "cp sample2.env .env && node build/pre.js",
     "prepare": "rm -rf platforms plugins && cordova prepare",
     "icon": "cordova-icon --config=config.xml --icon=src/app/icon.png",
     "splash": "cordova-splash --config=config.xml --splash=src/app/splash.png",

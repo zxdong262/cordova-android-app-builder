@@ -44,6 +44,10 @@ jobs:
     - run: npm run splash
     - run: npm run build-android
     - run: npm run cp
+    # App2
+    - run: npm run pre2
+    - run: npm run build-android
+    - run: npm run cp
     - run: ls
     - run: cp -r platforms/android/platform_www ./
     - run: tar -czvf android.tar.gz platform_www
